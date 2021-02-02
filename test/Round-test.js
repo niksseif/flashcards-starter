@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-// const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
@@ -25,7 +24,7 @@ describe('Round', function() {
       ["sort()", "map()", "join()"], "sort()");
 
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck, 'object');
+    const round = new Round(deck);
 
     expect(round.returnCurrentCard()).to.equal(deck.cards[0]);
   });
