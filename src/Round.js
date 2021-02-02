@@ -9,7 +9,7 @@ class Round {
   }
 
   returnCurrentCard() {
-    return this.currentCard;
+    return this.currentCard.id;
   }
 
   takeTurn(guess) {

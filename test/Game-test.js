@@ -39,6 +39,8 @@ describe('Game', function() {
 
     game.start();
 
-  })
-
+    expect(deck).to.exist;
+    expect(round).to.exist;
+    expect(game).to.exist;
+  });
 });
