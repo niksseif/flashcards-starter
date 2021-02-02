@@ -10,8 +10,8 @@ class Game {
     this.currentRound = round
   }
 
-  printMessage(deck, round) {
-    // eslint-disable-next-line no-console
+  printMessage(deck) {
+    // eslint-disable-next-line no-console,max-len
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
     -----------------------------------------------------------------------`)
   }
@@ -21,24 +21,17 @@ class Game {
   }
 
   start() {
-    var cards = []
+    const cards = []
 
-    // create cards
     prototypeQuestions.forEach(item => {
       const newCard = new Card(item);
       cards.push(newCard);
     });
 
-    // put cards in deck
     const deck = new Deck(cards);
-
-    // create round
     const round = new Round(deck);
 
-    // invoke printMessage
-    this.printMessage(deck, round);
-
-    // invoke printQuestion
+    this.printMessage(deck);
     this.printQuestion(round);
   }
 }
