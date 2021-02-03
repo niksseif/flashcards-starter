@@ -6,24 +6,32 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
   describe('general functionality', () => {
-    it('should be a function', () => {
-      const turn = new Turn();
+    let turn;
 
+    beforeEach(() => {
+      turn = new Turn();
+    });
+
+    it('should be a function', () => {
       expect(Turn).to.be.a('function');
       expect(turn).to.exist;
     });
 
     it('should be an instance of Turn', () => {
-      const turn = new Turn();
       expect(turn).to.be.an.instanceof(Turn);
     });
   })
 
   describe('specific functionality happy path', () => {
-    const card = new Card(2, 'What is a comma-separated list of related values?',
-      ['array', 'object', 'function'],
-      'array');
-    const turn = new Turn('array', card);
+    let card;
+    let turn;
+
+    beforeEach(() => {
+      card = new Card(2, 'What is a comma-separated list of related values?',
+        ['array', 'object', 'function'],
+        'array');
+      turn = new Turn('array', card);
+    });
 
     it('should have a string for user guess and a card instance', () => {
       expect(turn.guess).to.equal(card.correctAnswer)
@@ -50,10 +58,15 @@ describe('Turn', () => {
   })
 
   describe('specific functionality sad path', () => {
-    const card = new Card(2, 'What is a comma-separated list of related values?',
-      ['array', 'object', 'function'],
-      'array');
-    const turn = new Turn('object', card);
+    let card;
+    let turn;
+
+    beforeEach(() => {
+      card = new Card(2, 'What is a comma-separated list of related values?',
+        ['array', 'object', 'function'],
+        'array');
+      turn = new Turn('object', card);
+    });
 
     it('should evaluate to false if the guess is not correct', () => {
       expect(turn.evaluateGuess()).to.equal(false);
