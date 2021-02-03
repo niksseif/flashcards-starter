@@ -29,6 +29,11 @@ Here is a nice little gif showing how the game is played:
 ![flash cards gif](/src/flashcards.gif)
 
 ---
+And here is a nice little Trello board that I used to keep track of my todo list.
+[link to my Trello board](https://trello.com/b/rpEGHSXT/flashcards-mod2)
+
+---
+
 ### About me
 Last but not least, a little about me. I am Nikki and I am a Front End Software Engineer. I love making things that are 
 engaging and interesting, with simple design and easy flow. 
