@@ -1,4 +1,5 @@
 const Turn = require('../src/Turn');
+const Deck = require('../src/Deck');
 
 class Round {
   constructor(deck) {
@@ -17,7 +18,7 @@ class Round {
     const turn = new Turn(guess, this.currentCard);
 
     if (turn.evaluateGuess() === false) {
-      this.incorrectGuesses.push(this.currentCard.id)
+      this.incorrectGuesses.push(this.currentCard)
     } else {
       this.correctGuesses.push(this.currentCard.id)
     }
@@ -38,13 +39,28 @@ class Round {
   }
 
   endRound() {
-    const val = parseInt(this.calculatePercentCorrect())
-    console.log(`...`)
-    console.log(`🎉 Round over! 🎉 You answered ${val.toFixed(0)}% of the questions correctly!`)
-    console.log(`Thanks for playing. 😄 Press ctrl-c to exit.`)
-    console.log(`...`)
+    if (this.incorrectGuesses.length > 0 && this.turns === this.deck.cards.length) {
+      this.reviewIncorrectQuestions()
+    } else {
+      const val = parseInt(this.calculatePercentCorrect())
+      console.log(`...`)
+      console.log(`🎉 Round over! 🎉 You answered ${val.toFixed(0)}% of the questions correctly!`)
+      console.log(`Thanks for playing. 😄 Press ctrl-c to exit.`)
+      console.log(`...`)
 
-    return `** Round over! ** You answered 66% of the questions correctly!`
+      return `** Round over! ** You answered 66% of the questions correctly!`
+    }
+  }
+
+  reviewIncorrectQuestions() {
+    // basically reset and the new deck is the incorrectGuesses array
+    console.log("IS THIS AN ARRAY? ", this.incorrectGuesses)
+    this.deck = new Deck(this.incorrectGuesses)
+    this.currentCard = this.deck.cards[0]
+    this.turns = 0;
+    this.correctGuesses = []
+    this.incorrectGuesses = []
+    this.returnCurrentCard()
   }
 }
 
