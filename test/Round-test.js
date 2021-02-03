@@ -7,33 +7,40 @@ const Round = require('../src/Round');
 
 describe('Round', () => {
   describe('general functionality', () => {
-    it('should be a function', () => {
-      const round = new Round();
+    let round;
 
+    beforeEach(() => {
+      round = new Round();
+    });
+
+    it('should be a function', () => {
       expect(Round).to.be.a('function');
       expect(round).to.exist;
     });
 
     it('should be an instance of Round', () => {
-      const round = new Round();
       expect(round).to.be.an.instanceof(Round);
     });
   });
 
   describe('specific functionality happy path', () => {
-    const card1 = new Card(1, "What allows you to define a set of related information using " +
-      "key-value pairs?", ["object", "array", "function"], "object");
-    const card2 = new Card(2, "What is a comma-separated list of related values?",
-      ["array", "object", "function"],
-      "array");
-    const card3 = new Card(6, "What is an example of a mutator method?",
-      ["sort()", "map()", "join()"], "sort()");
-
-    const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
+    let card1;
+    let card2;
+    let card3;
+    let deck;
+    let round;
 
     beforeEach(function() {
-      round.turns = 0
+      card1 = new Card(1, 'What allows you to define a set of related information using ' +
+        'key-value pairs?', ['object', 'array', 'function'], 'object');
+      card2 = new Card(2, 'What is a comma-separated list of related values?',
+        ['array', 'object', 'function'],
+        'array');
+      card3 = new Card(6, 'What is an example of a mutator method?',
+        ['sort()', 'map()', 'join()'], 'sort()');
+
+      deck = new Deck([card1, card2, card3]);
+      round = new Round(deck);
     })
 
     it('should return current card being played', () => {
@@ -55,17 +62,6 @@ describe('Round', () => {
     });
 
     it('should calculate and return the percent of correct guesses', () => {
-      const card1 = new Card(1, "What allows you to define a set of related information using " +
-        "key-value pairs?", ["object", "array", "function"], "object");
-      const card2 = new Card(2, "What is a comma-separated list of related values?",
-        ["array", "object", "function"],
-        "array");
-      const card3 = new Card(6, "What is an example of a mutator method?",
-        ["sort()", "map()", "join()"], "sort()");
-
-      const deck = new Deck([card1, card2, card3]);
-      const round = new Round(deck);
-
       round.takeTurn('function'); // incorrect
       round.takeTurn('array'); // correct
       round.takeTurn('sort()'); // correct
@@ -74,17 +70,6 @@ describe('Round', () => {
     });
 
     it('should print a message to the console with percent correct', () => {
-      const card1 = new Card(1, "What allows you to define a set of related information using " +
-        "key-value pairs?", ["object", "array", "function"], "object");
-      const card2 = new Card(2, "What is a comma-separated list of related values?",
-        ["array", "object", "function"],
-        "array");
-      const card3 = new Card(6, "What is an example of a mutator method?",
-        ["sort()", "map()", "join()"], "sort()");
-
-      const deck = new Deck([card1, card2, card3]);
-      const round = new Round(deck);
-
       round.takeTurn('function'); // incorrect
       round.takeTurn('array'); // correct
       round.takeTurn('sort()'); // correct

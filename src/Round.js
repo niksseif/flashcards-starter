@@ -43,6 +43,8 @@ class Round {
     console.log(`🎉 Round over! 🎉 You answered ${val.toFixed(0)}% of the questions correctly!`)
     console.log(`Thanks for playing. 😄 Press ctrl-c to exit.`)
     console.log(`...`)
+
+    return `** Round over! ** You answered 66% of the questions correctly!`
   }
 }
 
