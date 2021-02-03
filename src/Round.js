@@ -40,8 +40,8 @@ class Round {
   endRound() {
     const val = parseInt(this.calculatePercentCorrect())
     console.log(`...`)
-    console.log(`🎉   Round over! 🎉   You answered ${val.toFixed(0)}% of the questions correctly!`)
-    console.log(`Thanks for playing. 😄   Press ctrl-c to exit.`)
+    console.log(`🎉 Round over! 🎉 You answered ${val.toFixed(0)}% of the questions correctly!`)
+    console.log(`Thanks for playing. 😄 Press ctrl-c to exit.`)
     console.log(`...`)
   }
 }
