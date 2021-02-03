@@ -26,7 +26,7 @@ Then you can play the game, or if you're a nerd like me, run some awesome unit t
 ---
 Here is a nice little gif showing how the game is played:
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+![flash cards gif](/src/flashcards.gif)
 
 ---
 ### About me
