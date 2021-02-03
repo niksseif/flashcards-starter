@@ -5,6 +5,7 @@ class Round {
     this.currentCard = deck ? deck.cards[0] : null
     this.deck = deck
     this.turns = 0
+    this.correctGuesses = []
     this.incorrectGuesses = []
   }
 
@@ -17,20 +18,32 @@ class Round {
 
     if (turn.evaluateGuess() === false) {
       this.incorrectGuesses.push(this.currentCard.id)
+    } else {
+      this.correctGuesses.push(this.currentCard.id)
     }
 
     this.turns++;
-    this.currentCard = this.deck.cards[this.turns];
+    if (this.deck.cards.length === this.turns) {
+      this.currentCard = null;
+    } else {
+      this.currentCard = this.deck.cards[this.turns];
+    }
+
+
     return turn.giveFeedback();
   }
 
   calculatePercentCorrect() {
-    const response = (this.incorrectGuesses.length / this.turns) * 100
+    const response = (this.correctGuesses.length / this.turns) * 100
     return `${response}%`
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`
+    const val = parseInt(this.calculatePercentCorrect())
+    console.log(`...`)
+    console.log(`** Round over! ** You answered ${val.toFixed(0)}% of the questions correctly!`)
+    console.log(`Press ctrl-c to exit.  😄`)
+    console.log(`...`)
   }
 }
 

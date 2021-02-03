@@ -4,16 +4,16 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
-describe('Deck', function() {
+describe('Deck', () => {
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     const deck = new Deck();
 
     expect(Deck).to.be.a('function');
     expect(deck).to.exist;
   });
 
-  it('should have an array of cards', function() {
+  it('should have an array of cards', () => {
     const card1 = new Card(1, "What allows you to define a set of related " +
       "information using key-value pairs?", ["object", "array", "function"],
       "object");
@@ -28,7 +28,7 @@ describe('Deck', function() {
     expect(deck.cards).to.be.an('array');
   });
 
-  it('should know how many cards are in the deck', function() {
+  it('should know how many cards are in the deck', () => {
     const card1 = new Card(1, "What allows you to define a set of related " +
       "information using key-value pairs?", ["object", "array", "function"],
       "object");
