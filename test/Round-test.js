@@ -30,7 +30,7 @@ describe('Round', () => {
     let deck;
     let round;
 
-    beforeEach(function() {
+    beforeEach(() => {
       card1 = new Card(1, 'What allows you to define a set of related information using ' +
         'key-value pairs?', ['object', 'array', 'function'], 'object');
       card2 = new Card(2, 'What is a comma-separated list of related values?',
@@ -62,17 +62,17 @@ describe('Round', () => {
     });
 
     it('should calculate and return the percent of correct guesses', () => {
-      round.takeTurn('function'); // incorrect
-      round.takeTurn('array'); // correct
-      round.takeTurn('sort()'); // correct
+      round.takeTurn('function');
+      round.takeTurn('array');
+      round.takeTurn('sort()');
 
       expect(round.calculatePercentCorrect()).to.equal('66%');
     });
 
     it('should print a message to the console with percent correct', () => {
-      round.takeTurn('function'); // incorrect
-      round.takeTurn('array'); // correct
-      round.takeTurn('sort()'); // correct
+      round.takeTurn('function');
+      round.takeTurn('array');
+      round.takeTurn('sort()');
 
       expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`)
     });
