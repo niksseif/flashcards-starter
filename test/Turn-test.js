@@ -67,13 +67,12 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it.only('should return positive feedback about correct guess', function() {
+  it('should return positive feedback about correct guess', function() {
     const card = new Card(2, 'What is a comma-separated list of related values?',
       ['array', 'object', 'function'],
       'array');
     const turn = new Turn('array', card);
     turn.evaluateGuess();
-    // console.log("FEEDBACK IN TEST ", turn.evaluateGuess())
 
     expect(turn.giveFeedback()).to.equal('correct!');
   })

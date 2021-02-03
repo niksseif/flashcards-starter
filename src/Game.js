@@ -24,7 +24,7 @@ class Game {
     const cards = []
 
     prototypeQuestions.forEach(item => {
-      const newCard = new Card(item);
+      const newCard = new Card(item.id, item.question, item.answers, item.correctAnswer);
       cards.push(newCard);
     });
 
