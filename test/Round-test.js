@@ -75,7 +75,7 @@ describe('Round', () => {
       expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`)
     });
 
-    it.only('should have a function reviewIncorrectQuestions that allows user ' +
+    it('should have a function reviewIncorrectQuestions that allows user ' +
       'to go through their incorrect questions', () => {
       round.takeTurn('function');
       round.takeTurn('array');

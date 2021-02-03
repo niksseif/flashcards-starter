@@ -54,12 +54,9 @@ class Round {
 
   reviewIncorrectQuestions() {
     // basically reset and the new deck is the incorrectGuesses array
-    console.log("IS THIS AN ARRAY? ", this.incorrectGuesses)
     this.deck = new Deck(this.incorrectGuesses)
     this.currentCard = this.deck.cards[0]
     this.turns = 0;
-    this.correctGuesses = []
-    this.incorrectGuesses = []
     this.returnCurrentCard()
   }
 }
