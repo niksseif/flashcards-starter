@@ -31,12 +31,10 @@ describe('Round', () => {
     let round;
 
     beforeEach(() => {
-      card1 = new Card(1, 'What allows you to define a set of related information using ' +
-        'key-value pairs?', ['object', 'array', 'function'], 'object');
-      card2 = new Card(2, 'What is a comma-separated list of related values?',
-        ['array', 'object', 'function'],
+      card1 = new Card(1, 'What word starts with o?', ['object', 'array', 'function'], 'object');
+      card2 = new Card(2, 'What word starts with a?', ['array', 'object', 'function'],
         'array');
-      card3 = new Card(6, 'What is an example of a mutator method?',
+      card3 = new Card(6, 'What word starts with s?',
         ['sort()', 'map()', 'join()'], 'sort()');
 
       deck = new Deck([card1, card2, card3]);
