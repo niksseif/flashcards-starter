@@ -6,16 +6,16 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
 
-describe('Game', function() {
+describe('Game', () => {
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     const game = new Game()
 
     expect(Game).to.be.a('function');
     expect(game).to.exist;
   });
 
-  it('should keep track of the current round', function() {
+  it('should keep track of the current round', () => {
     const round = new Round();
     const game = new Game(round);
 
@@ -23,7 +23,7 @@ describe('Game', function() {
     expect(game.currentRound).to.be.instanceOf(Round);
   });
 
-  it('should start a game', function() {
+  it('should start a game', () => {
     const card1 = new Card(1, "What allows you to define a set of related " +
       "information using key-value pairs?", ["object", "array", "function"],
       "object");
@@ -37,10 +37,10 @@ describe('Game', function() {
     const round = new Round(deck);
     const game = new Game(round);
 
+    expect(game).to.exist;
     game.start();
 
     expect(deck).to.exist;
     expect(round).to.exist;
-    expect(game).to.exist;
   });
 });
