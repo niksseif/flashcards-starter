@@ -5,13 +5,17 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
 describe('Deck', () => {
-
   describe('general functionality', () => {
     it('should be a function', () => {
       const deck = new Deck();
 
       expect(Deck).to.be.a('function');
       expect(deck).to.exist;
+    });
+
+    it('should be an instance of Deck', () => {
+      const deck = new Deck();
+      expect(deck).to.be.an.instanceof(Deck);
     });
   });
 

@@ -34,7 +34,7 @@ class Round {
 
   calculatePercentCorrect() {
     const response = (this.correctGuesses.length / this.turns) * 100
-    return `${response}%`
+    return `${Math.floor(response)}%`
   }
 
   endRound() {
