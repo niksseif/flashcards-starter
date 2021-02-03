@@ -24,16 +24,16 @@ describe('Card', () => {
 
   describe('specific functionality', () => {
     let card;
+    let question;
 
     beforeEach(() => {
-      card = new Card(1, 'What allows you to define a set of related ' +
-        'information using key-value pairs?', ['object', 'array', 'function'],
+      card = new Card(1, 'What word starts with o?', ['object', 'array', 'function'],
         'object');
+      question = 'What word starts with o?'
     });
 
     it('should store a question', () => {
-      expect(card.question).to.equal('What allows you to define a set of ' +
-        'related information using key-value pairs?');
+      expect(card.question).to.equal(question);
     });
 
     it('should store a list of possible answers', () => {
