@@ -23,7 +23,7 @@ describe('Round', () => {
     });
   });
 
-  describe('specific functionality happy path', () => {
+  describe('specific functionality', () => {
     let card1;
     let card2;
     let card3;
