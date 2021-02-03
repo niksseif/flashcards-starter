@@ -5,6 +5,7 @@ class Round {
     this.currentCard = deck.cards[0]
     this.deck = deck
     this.turns = 0
+    this.correctGuesses = []
     this.incorrectGuesses = []
   }
 
@@ -18,11 +19,16 @@ class Round {
 
     if (turn.evaluateGuess() === false) {
       this.incorrectGuesses.push(this.currentCard.id)
+      // return turn.giveFeedback()
     }
+    // else if (turn.evaluateGuess() === true) {
+    //   this.correctGuesses.push(this.currentCard.id)
+    //   return turn.giveFeedback()
+    // }
 
     this.turns++;
     this.currentCard = this.deck.cards[this.turns];
-    console.log("TURN.GIVEFEEDBACK ", turn.giveFeedback())
+    // console.log("TURN.GIVEFEEDBACK ", turn.giveFeedback())
     return turn.giveFeedback();
   }
 
