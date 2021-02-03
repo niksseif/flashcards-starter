@@ -27,7 +27,7 @@ describe('Turn', () => {
     let turn;
 
     beforeEach(() => {
-      card = new Card(2, 'What is a comma-separated list of related values?',
+      card = new Card(2, 'What word starts with a?',
         ['array', 'object', 'function'],
         'array');
       turn = new Turn('array', card);
@@ -62,7 +62,7 @@ describe('Turn', () => {
     let turn;
 
     beforeEach(() => {
-      card = new Card(2, 'What is a comma-separated list of related values?',
+      card = new Card(2, 'What word starts with o?',
         ['array', 'object', 'function'],
         'array');
       turn = new Turn('object', card);
