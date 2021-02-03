@@ -14,8 +14,9 @@ describe('Deck', function() {
   });
 
   it('should have an array of cards', function() {
-    const card1 = new Card(1, "What allows you to define a set of related information using " +
-    "key-value pairs?", ["object", "array", "function"], "object");
+    const card1 = new Card(1, "What allows you to define a set of related " +
+      "information using key-value pairs?", ["object", "array", "function"],
+      "object");
     const card2 = new Card(2, "What is a comma-separated list of related values?",
       ["array", "object", "function"],
       "array");
@@ -25,6 +26,21 @@ describe('Deck', function() {
     const deck = new Deck([card1, card2, card3]);
 
     expect(deck.cards).to.be.an('array');
-  })
+  });
+
+  it('should know how many cards are in the deck', function() {
+    const card1 = new Card(1, "What allows you to define a set of related " +
+      "information using key-value pairs?", ["object", "array", "function"],
+      "object");
+    const card2 = new Card(2, "What is a comma-separated list of related values?",
+      ["array", "object", "function"],
+      "array");
+    const card3 = new Card(6, "What is an example of a mutator method?",
+      ["sort()", "map()", "join()"], "sort()");
+
+    const deck = new Deck([card1, card2, card3]);
+
+    expect(deck.countCards()).to.equal(3)
+  });
 
 });

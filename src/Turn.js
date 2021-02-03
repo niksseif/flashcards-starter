@@ -13,9 +13,11 @@ class Turn {
   }
 
   evaluateGuess() {
+    // difference here between this.card.correctAnswer in test
+    //  and this.card.id.correctAnswer in command line
     if (this.guess === this.card.correctAnswer) {
       return true
-    } else {
+    } else if (this.guess !== this.card.correctAnswer) {
       return false
     }
   }
