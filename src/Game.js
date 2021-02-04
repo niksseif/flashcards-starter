@@ -10,9 +10,9 @@ class Game {
     this.currentRound = round ? round : null
   }
 
-  printMessage(deck) {
+  printMessage(deck, user) {
     // eslint-disable-next-line no-console,max-len
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards, ${user}! You are playing with ${deck.countCards()} cards.
     -----------------------------------------------------------------------`)
   }
 
@@ -20,7 +20,7 @@ class Game {
     util.main(round);
   }
 
-  start() {
+  start(user) {
     const cards = []
 
     prototypeQuestions.forEach(item => {
@@ -31,7 +31,7 @@ class Game {
     const deck = new Deck(cards);
     const round = new Round(deck);
 
-    this.printMessage(deck);
+    this.printMessage(deck, user);
     this.printQuestion(round);
   }
 }
