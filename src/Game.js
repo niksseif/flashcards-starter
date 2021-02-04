@@ -7,7 +7,7 @@ const Round = require('../src/Round');
 
 class Game {
   constructor(round) {
-    this.currentRound = round
+    this.currentRound = round ? round : null;
   }
 
   printMessage(deck) {
