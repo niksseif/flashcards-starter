@@ -5,5 +5,5 @@ let app = http.createServer();
 app.listen(3000, '127.0.0.1');
 
 const Game = require('./src/Game');
-const game = new Game()
+const game = new Game();
 game.start();
