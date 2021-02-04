@@ -16,10 +16,6 @@ class Game {
     -----------------------------------------------------------------------`)
   }
 
-  printStartOverMessage(deck) {
-    console.log(`Starting over with ${deck.countCards()} cards you got wrong.`)
-  }
-
   printQuestion(round) {
     util.main(round);
   }
@@ -37,23 +33,6 @@ class Game {
 
     this.printMessage(deck);
     this.printQuestion(round);
-  }
-
-  startOver() {
-    if (this.currentRound.startRoundOver === true) {
-      const startOverCards = []
-
-      this.currentRound.incorrectGuesses.forEach(item => {
-        const newCard = new Card(item.id, item.question, item.answers, item.correctAnswer);
-        startOverCards.push(newCard);
-      });
-
-      const deck = new Deck(startOverCards);
-      const round = new Round(deck);
-
-      this.printStartOverMessage(deck);
-      this.printQuestion(round);
-    }
   }
 }
 

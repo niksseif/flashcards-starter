@@ -74,17 +74,6 @@ describe('Round', () => {
 
       expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`)
     });
-
-    it('should have a function reviewIncorrectQuestions that allows user ' +
-      'to go through their incorrect questions', () => {
-      round.takeTurn('function');
-      round.takeTurn('array');
-      round.takeTurn('sort()');
-
-      expect(round.incorrectGuesses.length).to.equal(1);
-      expect(round.turns).to.equal(round.deck.cards.length);
-
-    })
   });
 
   describe('specific functionality re-doing missed questions', () => {
@@ -105,8 +94,14 @@ describe('Round', () => {
       round = new Round(deck);
     })
 
-    it('should set up conditions for restarting with missed questions', () => {
+    it.only('should set up conditions for restarting with missed questions', () => {
+      round.takeTurn('function');
+      round.takeTurn('array');
+      round.takeTurn('sort()');
 
+      expect(round.incorrectGuesses.length).to.equal(1);
+      expect(round.turns).to.equal(round.deck.cards.length);
+      expect(round.startRoundOver).to.equal(true)
     })
   })
 
