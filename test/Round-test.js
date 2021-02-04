@@ -87,4 +87,27 @@ describe('Round', () => {
     })
   });
 
+  describe('specific functionality re-doing missed questions', () => {
+    let card1;
+    let card2;
+    let card3;
+    let deck;
+    let round;
+
+    beforeEach(() => {
+      card1 = new Card(1, 'What word starts with o?', ['object', 'array', 'function'], 'object');
+      card2 = new Card(2, 'What word starts with a?', ['array', 'object', 'function'],
+        'array');
+      card3 = new Card(6, 'What word starts with s?',
+        ['sort()', 'map()', 'join()'], 'sort()');
+
+      deck = new Deck([card1, card2, card3]);
+      round = new Round(deck);
+    })
+
+    it('should set up conditions for restarting with missed questions', () => {
+
+    })
+  })
+
 });

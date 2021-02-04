@@ -8,6 +8,7 @@ class Round {
     this.turns = 0
     this.correctGuesses = []
     this.incorrectGuesses = []
+    this.startRoundOver = false
   }
 
   returnCurrentCard() {
@@ -39,8 +40,10 @@ class Round {
   }
 
   endRound() {
+    console.log("turns ",  this.turns)
+    console.log("deck cards length ",  this.deck.cards.length)
     if (this.incorrectGuesses.length > 0 && this.turns === this.deck.cards.length) {
-      this.reviewIncorrectQuestions()
+      this.startRoundOver = true
     } else {
       const val = parseInt(this.calculatePercentCorrect())
       console.log(`...`)
@@ -52,13 +55,13 @@ class Round {
     }
   }
 
-  reviewIncorrectQuestions() {
-    // basically reset and the new deck is the incorrectGuesses array
-    this.deck = new Deck(this.incorrectGuesses)
-    this.currentCard = this.deck.cards[0]
-    this.turns = 0;
-    this.returnCurrentCard()
-  }
+  // reviewIncorrectQuestions() {
+  //   // basically reset and the new deck is the incorrectGuesses array
+  //   this.deck = new Deck(this.incorrectGuesses)
+  //   this.currentCard = this.deck.cards[0]
+  //   this.turns = 0;
+  //   this.returnCurrentCard()
+  // }
 }
 
 module.exports = Round;
