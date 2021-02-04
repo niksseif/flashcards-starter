@@ -12,6 +12,9 @@ class Game {
 
   printMessage(deck, user) {
     // eslint-disable-next-line no-console,max-len
+    console.log(' /\\_/\\')
+    console.log('( o.o )')
+    console.log(' > ^ <')
     console.log(`Welcome to FlashCards, ${user}! You are playing with ${deck.countCards()} cards.
     -----------------------------------------------------------------------`)
   }
